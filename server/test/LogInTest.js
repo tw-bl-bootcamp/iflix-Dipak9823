@@ -70,14 +70,28 @@ describe('Given non Authenticated user EmailId "abc@gmail.com" and passwo
 describe('Given non Authenticated user EmailId "patil.dipak@gmail.com" and password "12345678" When Pass To LogIn API', () => {
     it('It will return Status Code 400', (done) => {
         let userData = {
-            email: "abc@gmail.com",
-            password: "12345678910"
+            email: "patil.dipak@gmail.com",
+            password: "12345678"
         }
         chai.request(server)
             .post('/login')
             .send(userData)
             .end((res) => {
                 assert.equal(400, res.status);
+                done();
+            })
+    })
+
+    it('It will return success true', (done) => {
+        let userData = {
+            email: "patil.dipak@gmail.com",
+            password: "12345678"
+        }
+        chai.request(server)
+            .post('/login')
+            .send(userData)
+            .end((res) => {
+                assert.equal(true, res.responseResult.success);
                 done();
             })
     })

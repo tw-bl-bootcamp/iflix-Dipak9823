@@ -25,6 +25,8 @@ exports.logIn = (req, res) => {
                 res.status(400).send(responseResult);
             }
             else {
+                responseResult.success = true;
+                responseResult.message = "Login Successfully";
                 res.status(200);
             }
         })
