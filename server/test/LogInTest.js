@@ -23,7 +23,6 @@ describe('Given EmailId "patildipak@gmailcom" and password "123" When Pass To Lo
     })
 
     it('It will return success false', (done) => {
-        //this.timeout=10000;
         let userData = {
             email: "patildipakgmailcom",
             password: "123"
@@ -37,3 +36,20 @@ describe('Given EmailId "patildipak@gmailcom" and password "123" When Pass To Lo
             })
     })
 })
+
+describe('Given non Authenticated user EmailId "abc@gmail.com" and password "123456789" When Pass To LogIn API', () => {
+    it('It will return Status Code 400', (done) => {
+        let userData = {
+            email: "patildipak@gmailcom",
+            password: "123"
+        }
+        chai.request(server)
+            .post('/login')
+            .send(userData)
+            .end((res) => {
+                assert.equal(400, res.status);
+                done();
+            })
+    })
+})
+
