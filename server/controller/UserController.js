@@ -24,7 +24,9 @@ exports.logIn = (req, res) => {
                 responseResult.message = "Unauthorized User";
                 res.status(400).send(responseResult);
             }
-
+            else {
+                res.status(200);
+            }
         })
     }
 }
