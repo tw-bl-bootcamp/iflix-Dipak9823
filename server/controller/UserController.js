@@ -20,8 +20,11 @@ exports.logIn = (req, res) => {
     else {
         userModel.logIn(logInObj, (err, data) => {
             if (err) {
+                responseResult.success = false;
+                responseResult.message = "Unauthorized User";
                 res.status(400).send(responseResult);
             }
+
         })
     }
 }
