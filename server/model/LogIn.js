@@ -17,20 +17,19 @@ var userSchema = new mongoose.Schema({
 
 });
 
-var user = mongoose.model('myusers', userSchema);
-
+var user = mongoose.model('myuser', userSchema);
+exports.user;
 class UserModel {
     logIn(loginObj, callback) {
-        user.find({ "email": loginObj.email }, (err, data) => {
+        console.log("User model 1",loginObj);
+        user.find({ "email": loginObj.email,"password":loginObj.password }, (err, data) => {
+            console.log("Data of user is",data);
             if (err) {
+                console.log("Error is",err);
                 return callback(err);
             }
-
-            else if (loginObj.password == data.password) {
-                return callback(null, result);
-            }
             else {
-                return callback("Invalid User")
+                return callback(null,data);
             }
         })
     }

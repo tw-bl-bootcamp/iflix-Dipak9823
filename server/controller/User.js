@@ -18,6 +18,7 @@ exports.logIn = (req, res) => {
     }
     else {
         userModel.logIn(logInObj, (err, data) => {
+            console.log("Controller 1",logInObj);
             if (err) {
                 responseResult.success = false;
                 responseResult.message = "Unauthorized User";
@@ -27,7 +28,7 @@ exports.logIn = (req, res) => {
 
                 res.status(200).send({
                     message: 'token generated',
-                    name: data.firstName
+                    name: data.name
                 });
             }
         })
