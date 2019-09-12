@@ -1,8 +1,9 @@
 const express=require('express');
 const router=express.Router();
-const controller=require('../controller/User');
+const controllerUser=require('../controller/User');
+const controllerMovie=require('../controller/Movie');
 
-router.post('/login',controller.logIn);
-router.get('/movies',controller.movies);
+router.post('/login',controllerUser.logIn);
+router.get('/movies',controllerMovie.movie);
 
 module.exports=router;

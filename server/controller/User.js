@@ -8,17 +8,20 @@ exports.logIn = (req, res) => {
 
     var errors = req.validationErrors();
 
-    let logInObj = {
+    var logInObj = {
         email: req.body.email,
         password: req.body.password
     }
     if (errors) {
+        console.log("Error in Validation",errors);
         responseResult.success = false;
         responseResult.message = "Enter valid Email And Password";
         res.status(500).send(responseResult);
     }
     else {
+        console.log("Controller 1");
         userModel.logIn(logInObj, (err, data) => {
+            console.log("Controller 2");
             if (err) {
                 responseResult.success = false;
                 responseResult.message = "Unauthorized User";

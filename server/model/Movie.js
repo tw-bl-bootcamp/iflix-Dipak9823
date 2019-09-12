@@ -22,9 +22,6 @@ var movieSchema = new mongoose.Schema({
         required:true
     },
 
-    poster: {
-        type:String,
-    },
 
     like: {
         type:Number,
@@ -45,9 +42,10 @@ var movieSchema = new mongoose.Schema({
 var movie = mongoose.model('movies', movieSchema);
 
 class MovieModel {
-    async getAllMovies(req, callback) {
+    async movie(req, callback) {
         try{
             var result=await movie.find({});
+            console.log("Result is:",result);
             return callback(null,result);
         } catch {
             return callback(err);
