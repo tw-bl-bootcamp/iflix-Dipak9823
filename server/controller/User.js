@@ -1,12 +1,12 @@
-const { check, validationResult } = require('express-validator');
 const userModel = require('../model/LogIn');
 exports.logIn = (req, res) => {
 
-    let responseResult = {};
-    check('email', 'Email Id Is not Valid').isEmail();
-    check('password', 'Password is not Valid').isLength({ min: 8 });
+    var responseResult = {};
+    console.log("Login Body", req.body);
+    req.checkBody('email', 'Email Id Is not Valid').isEmail();
+    req.checkBody('password', 'Password is not Valid').isLength({ min: 8 });
 
-    let errors = validationResult;
+    var errors = req.validationErrors();
 
     let logInObj = {
         email: req.body.email,
@@ -15,7 +15,7 @@ exports.logIn = (req, res) => {
     if (errors) {
         responseResult.success = false;
         responseResult.message = "Enter valid Email And Password";
-        res.status(422).send(responseResult);
+        res.status(500).send(responseResult);
     }
     else {
         userModel.logIn(logInObj, (err, data) => {
@@ -25,9 +25,11 @@ exports.logIn = (req, res) => {
                 res.status(400).send(responseResult);
             }
             else {
-                responseResult.success = true;
-                responseResult.message = "Login Successfully";
-                res.status(200);
+
+                res.status(200).send({
+                    message: 'token generated',
+                    name: data.firstName
+                });
             }
         })
     }
