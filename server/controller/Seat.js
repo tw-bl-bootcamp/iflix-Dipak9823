@@ -1,3 +1,4 @@
+const seatModel = require('../model/SeatModel');
 
 exports.seat = (req, res) => {
 
@@ -8,9 +9,30 @@ exports.seat = (req, res) => {
 
     var errors = req.validationErrors();
 
+    var seatObj = {
+        setno: req.body.seatno,
+        userid: req.body.userid
+    }
     if (errors) {
+        console.log("Error in Express validator",errors);
         responseResult.success = false;
-        responseResult.message = "Fields are Empty";
+        responseResult.message = "Seat no and userid are Empty";
         res.status(500).send(responseResult);
+    }
+    else {
+        console.log("Controller 1",seatObj);
+        seatModel.assignSeat(seatObj, (err, data) => {
+            console.log("Controller 2",data);
+            if (err) {
+                responseResult.success = false;
+                responseResult.message = "Error in saving seats";
+                res.status(400).send(responseResult);
+            }
+            else {
+                responseResult.success = true;
+                responseResult.message = "Seat book Successfully";
+                res.status(200).send(responseResult);
+            }
+        })
     }
 }
