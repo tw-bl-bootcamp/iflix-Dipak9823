@@ -1,10 +1,10 @@
-let movieModel = require('../model/Movie')
+let theaterModel=require('../model/TheaterModel');
 
-exports.movie = (req, res) => {
+exports.theater = (req, res) => {
 
     var responseResult = {};
 
-    movieModel.movie(req, (err, data) => {
+    theaterModel.theaterInfo(req, (err, data) => {
         if(err) {
             responseResult.success = false;
             responseResult.message = "No movie Available";

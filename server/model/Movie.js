@@ -45,7 +45,6 @@ class MovieModel {
     async movie(req, callback) {
         try{
             var result=await movie.find({});
-            console.log("Result is:",result);
             return callback(null,result);
         } catch {
             return callback(err);
