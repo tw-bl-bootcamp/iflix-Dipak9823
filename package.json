@@ -1,0 +1,27 @@
+{
+  "name": "iflix-dipak9823",
+  "version": "1.0.0",
+  "description": "iFlix is a movie booking app which allows users to select from a list of movie shows  and book any available seats using an intuitive online interface.",
+  "main": "index.js",
+  "dependencies": {
+    "chai-http": "^4.3.0",
+    "chai": "^4.2.0",
+    "express-validator": "^5.3.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  },
+  "scripts": {
+    "start":"concurrently \"cd server && npm start\" \"cd client/MovieBooking && ng serve\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw-bl-bootcamp/iflix-Dipak9823.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tw-bl-bootcamp/iflix-Dipak9823/issues"
+  },
+  "homepage": "https://github.com/tw-bl-bootcamp/iflix-Dipak9823#readme"
+}
