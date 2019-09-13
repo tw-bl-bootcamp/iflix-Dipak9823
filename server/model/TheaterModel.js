@@ -14,7 +14,6 @@ var theaterSchema = new mongoose.Schema({
 });
 var theater = mongoose.model('theaters', theaterSchema);
 
-
 class TheaterModel {
     async theaterInfo(req, callback) {
         try{
@@ -23,6 +22,10 @@ class TheaterModel {
         } catch {
             return callback(err);
         }
+    }
+
+    theaterModel() {
+        return theater;
     }
 }
 module.exports=new TheaterModel();

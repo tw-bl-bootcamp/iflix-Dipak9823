@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var user=require('./LogIn')
+var theater=require('./TheaterModel');
+var theaterSchema=theater.theaterModel;
 var seatSchema = new mongoose.Schema({
 
     number:[ {
@@ -7,12 +8,11 @@ var seatSchema = new mongoose.Schema({
         required: true
     }],
 
-    userid: [
+    theaterId: 
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref:user
+            ref: theaterSchema
         }
-    ]
 });
 
 var seat = mongoose.model('seat', seatSchema);

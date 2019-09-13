@@ -18,7 +18,7 @@ var userSchema = new mongoose.Schema({
 });
 
 var user = mongoose.model('myuser', userSchema);
-exports.user;
+
 class UserModel {
     logIn(loginObj, callback) {
         console.log("User model 1",loginObj);
