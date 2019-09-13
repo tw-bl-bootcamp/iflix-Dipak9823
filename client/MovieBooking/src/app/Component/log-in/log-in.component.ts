@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RootServiceService } from 'src/app/Service/root-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -9,7 +10,8 @@ import { RootServiceService } from 'src/app/Service/root-service.service';
 export class LogInComponent implements OnInit {
   loginForm: FormGroup;
   constructor(private formBuilder: FormBuilder,
-    private rootservice: RootServiceService) { }
+    private rootservice: RootServiceService,
+    private router:Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -28,7 +30,7 @@ export class LogInComponent implements OnInit {
       localStorage.setItem('token', response.token);
       console.log("Token stored" + localStorage.getItem("token"));
 
-      //this.router.navigate(['/keepnotes']);
+      this.router.navigate(['/dashboard']);
     },
       error => {
         console.log("Response From post data is", error);

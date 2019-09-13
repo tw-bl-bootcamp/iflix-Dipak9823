@@ -1,19 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CommonModule} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogInComponent } from './Component/log-in/log-in.component';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ReactiveFormsModule} from '@angular/forms'; 
-import { MatButtonModule,MatInputModule,MatMenuModule,MatSidenavModule,MatCardModule,MatFormFieldModule,MatLabel} from '@angular/material';
+import { MatButtonModule,MatInputModule,MatMenuModule,MatSidenavModule,MatCardModule,MatFormFieldModule,MatToolbarModule} from '@angular/material';
+import { MatIconModule} from '@angular/material';
 import { FlexLayoutModule} from '@angular/flex-layout';
-
+import { HttpClientModule} from '@angular/common/http';
+import { RootServiceService } from './Service/root-service.service';
+import { DashboardComponent } from './Component/dashboard/dashboard.component';
+import { from } from 'rxjs';
+import { MoviesComponent } from './Component/movies/movies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
+    DashboardComponent,
+    MoviesComponent
     
   ],
   imports: [
@@ -27,9 +34,13 @@ import { FlexLayoutModule} from '@angular/flex-layout';
     MatMenuModule,
     MatCardModule,
     MatFormFieldModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
+    CommonModule,
+    MatToolbarModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [RootServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

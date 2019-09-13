@@ -1,0 +1,12 @@
+<div fxLayout="row wrap" fxLayoutAlign="center start" class="displaynotes">
+    <mat-card *ngFor="let items of movieArray "  >
+        <div (click)="goToTheater()" >
+        <mat-card-title>
+        {{items.title}}
+        </mat-card-title>
+      <mat-card-content>
+        {{items.actor}}
+      </mat-card-content>
+      </div>
+    </mat-card>
+</div>

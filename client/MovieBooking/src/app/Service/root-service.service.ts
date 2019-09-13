@@ -5,10 +5,14 @@ import { HttpClient}  from '@angular/common/http';
 })
 export class RootServiceService {
 
-  url="http://localhost:8000";
+  url="http://localhost:3000";
   constructor(private http:HttpClient) { }
 
   login(loginData){ 
     return this.http.post(`${this.url}/login`,loginData);     
+  }
+
+  getMovies(){ 
+    return this.http.get(`${this.url}/movies`);     
   }
 }
