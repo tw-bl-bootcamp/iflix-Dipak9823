@@ -12,15 +12,16 @@ import { FlexLayoutModule} from '@angular/flex-layout';
 import { HttpClientModule} from '@angular/common/http';
 import { RootServiceService } from './Service/root-service.service';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
-import { from } from 'rxjs';
 import { MoviesComponent } from './Component/movies/movies.component';
+import { TheaterComponent } from './Component/theater/theater.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     DashboardComponent,
-    MoviesComponent
+    MoviesComponent,
+    TheaterComponent
     
   ],
   imports: [

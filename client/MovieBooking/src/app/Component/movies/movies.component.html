@@ -1,11 +1,20 @@
 <div fxLayout="row wrap" fxLayoutAlign="center start" class="displaynotes">
-    <mat-card *ngFor="let items of movieArray "  >
-        <div (click)="goToTheater()" >
+    <mat-card *ngFor="let items of movieArray " >
+        <div [routerLink]="['theater']">
         <mat-card-title>
         {{items.title}}
         </mat-card-title>
       <mat-card-content>
-        {{items.actor}}
+        <div fxLayout="column">
+        <div>
+        {{items.actors}}</div>
+        <div>
+        {{items.language}}</div>
+        <div>
+        {{items.director}}</div>
+        <div>
+        {{items.rate}}</div>
+        </div>
       </mat-card-content>
       </div>
     </mat-card>

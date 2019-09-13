@@ -28,7 +28,9 @@ class UserModel {
                 console.log("Error is",err);
                 return callback(err);
             }
-            else {
+            else if(data==null){
+                return callback(err);
+            }{
                 return callback(null,data);
             }
         })

@@ -13,7 +13,7 @@ app.use(expressvalidator());
 app.use('/',routes);
 
 const port = 3000;
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log("Connect to the port number:", port);
 });
 

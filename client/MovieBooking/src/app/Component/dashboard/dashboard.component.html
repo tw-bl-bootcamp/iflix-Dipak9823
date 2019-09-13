@@ -1,8 +1,12 @@
 <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" >
 
-    <button mat-icon-button (click)="sidenav.toggle()">
+    <button mat-icon-button >
         <mat-icon>menu</mat-icon>
       </button>
+
+    <button mat-button fxLayoutAlign="end center" (click)="onLogOut()">
+      Logout
+    </button>
 </mat-toolbar>
 
-<app-movies></app-movies>
+<router-outlet></router-outlet>

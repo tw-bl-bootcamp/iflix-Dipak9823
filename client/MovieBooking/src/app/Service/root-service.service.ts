@@ -15,4 +15,8 @@ export class RootServiceService {
   getMovies(){ 
     return this.http.get(`${this.url}/movies`);     
   }
+
+  getTheater() {
+    return this.http.get(`${this.url}/theater`);
+  }
 }

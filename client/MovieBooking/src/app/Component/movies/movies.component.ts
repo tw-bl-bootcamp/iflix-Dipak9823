@@ -37,8 +37,8 @@ export class MoviesComponent implements OnInit {
       }
     )
 }
-
-  goToTheater() {
-    
+  toTheater() {
+    this.router.navigate(['theater']);
   }
+
 }
