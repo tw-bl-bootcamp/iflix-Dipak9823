@@ -17,12 +17,12 @@ export class TheaterComponent implements OnInit {
 
   getAllTheaters(){
     
-    this.service.getMovies().subscribe(res =>{
+    this.service.getTheater().subscribe(res =>{
         
         this.sample=res;
         this.theater = this.sample.message;
 
-        console.log("Movies",this.theater);
+        console.log("Theaters",this.theater);
         
         for(let i=0;i<this.theater.length;i++) {
          this.theaterArray.push(this.theater[i]);
