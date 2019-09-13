@@ -1,0 +1,31 @@
+<form class="loginform" [formGroup]="loginForm" fxLayoutAlign="center center" >
+    <mat-card fxLayout="column">
+    
+    <div style="width:100%;" fxLayout="column" fxLayoutAlign="center center">  
+    <h3>Sign In</h3>
+    <h5>to continue to App</h5>  
+    </div>
+    
+    <div fxLayoutAlign="center center">
+    
+    <mat-form-field appearance="outline" style="width:400px !important">
+      <mat-label>Email</mat-label>
+      <input matInput id=" email" type="text" placeholder="Enter Email" formControlName="email">
+    </mat-form-field>
+    </div>
+    
+    <div fxLayout="column" fxLayoutAlign="center center">
+    
+        <mat-form-field appearance="outline" style="width:400px !important">
+          <mat-label>Password</mat-label>
+          <input matInput id="password" type="password" placeholder="Enter Password" formControlName="password">
+        </mat-form-field>
+    </div>  
+    <div fxLayout="column" fxLayoutAlign="end end">      
+      <button mat-button (click)="onSubmit()" style="background-color: #33BDFF">Log in</button>
+    </div>
+    <div fxLayout="column" >
+  </div>
+  </mat-card>
+  </form>
+  
